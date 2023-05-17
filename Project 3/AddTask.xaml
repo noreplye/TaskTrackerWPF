@@ -1,0 +1,25 @@
+﻿<Window x:Class="Project_3.AddTask"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project_3"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="AddTask" Height="300" Width="500">
+    <Grid Background="#7DE38C">
+        <Border MinWidth="400" Margin="15" Background="#34AD45" VerticalAlignment="Center" Padding="30" MaxWidth="570" CornerRadius="15">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="30" Color="LightGreen" ShadowDepth="0"/>
+            </Border.Effect>
+            <StackPanel>
+                
+                
+                <TextBox x:Name="Data" materialDesign:HintAssist.Hint="Enter data" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                <TextBox x:Name="Task" materialDesign:HintAssist.Hint="Enter task" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+
+                <Button Content="Add board" Margin="0 20 0 0" Click="click_to_add_board"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
