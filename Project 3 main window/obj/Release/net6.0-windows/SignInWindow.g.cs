@@ -72,7 +72,7 @@ namespace Project_3 {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Project 3;component/signinwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Project 3 main window;component/signinwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\SignInWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

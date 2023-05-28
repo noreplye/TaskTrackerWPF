@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Привет\Source\Repos\BojeUbeyteMenya\TaskTrackerWPF\Project 3 main window\obj\Debug\net6.0-windows\
+C:\Users\Привет\source\repos\Project 3\Project 3\obj\Debug\net6.0-windows\
 Project_3
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-C:\Users\Привет\Source\Repos\BojeUbeyteMenya\TaskTrackerWPF\Project 3 main window\App.xaml
-5-749387555
+C:\Users\Привет\source\repos\Project 3\Project 3\App.xaml
+41380382814
 
-8-863440876
+71024659887
 197566307748
-boards.xaml;BordWindow.xaml;MainWindow.xaml;scroll.xaml;SignInWindow.xaml;
+AddTask.xaml;boards.xaml;MainWindow.xaml;SignInWindow.xaml;
 
-True
+False
 

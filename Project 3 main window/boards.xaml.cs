@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project_3_main_window;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,7 +29,9 @@ namespace Project_3
         {
             //  AddTask addTask = new AddTask();
             //  addTask.Show();
-            Stack();
+
+
+            BordPanel.Children.Add(Column());
             
         }
 
@@ -38,7 +41,7 @@ namespace Project_3
         //    int StartY = 100;
 
         //    Button new_button = new Button();
-            
+
         //    new_button.Width = 100;
         //    new_button.Height = 100;
         //    Panelka.Children
@@ -46,35 +49,46 @@ namespace Project_3
 
 
         //}
-        private Border Column(List<string> names)
+        private Border Column()
         {
             Border bord = new Border()
             {
                 Margin = new Thickness(10),
                 Background = new SolidColorBrush(Colors.White),
-                VerticalAlignment = VerticalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Top,
                 HorizontalAlignment = HorizontalAlignment.Left,
-                Padding = new Thickness(10),
+                Padding = new Thickness(15),
                 CornerRadius = new CornerRadius(10),
-                
+
             };
-            bord.Name = "Bord1";
-           
+            
+
+
+
             StackPanel stackPanel = new StackPanel();
-            if (names != null)
+            
+            TextBlock BordName = new TextBlock()
             {
-                foreach (string name in names)
-                {
-                    stackPanel.Children.Add(Card(name, stackPanel, stackPanel.Children.Count));
-                }
-            }
+                
+                Margin = new Thickness(10),
+                VerticalAlignment = VerticalAlignment.Top,
+                HorizontalAlignment = HorizontalAlignment.Center,
+            };
+            TaskName Bord_Name = new TaskName();
+            Bord_Name.ShowDialog();
+            BordName.Text = Bord_Name.Naming;
+            stackPanel.Children.Add(BordName);
+
+            bord.Name = BordName.Text;
+
             stackPanel.Name = bord.Name;
             var delete = new Button
             {
                 Margin = new Thickness(10),
                 Width = 225,
                 Height = 40,
-                Content = "Delete Card"
+                Content = "Delete Card",
+                Name = bord.Name,
             };
             var Add = new Button
             {
@@ -82,9 +96,40 @@ namespace Project_3
                 Width = 225,
                 Height = 40,
                 Content = "Add Task"
+
             };
-            delete.Click += new RoutedEventHandler(DeleteCard);
-            Add.Click += new RoutedEventHandler(AddTask);
+            // delete.Click += new RoutedEventHandler(DeleteCard);
+            delete.Click += (s, e) =>
+            {
+                Border bordsss = (Border)LogicalTreeHelper.FindLogicalNode(BordPanel, delete.Name);
+                BordPanel.Children.Remove(bordsss);
+            };
+            Add.Click += (s, e) =>
+            {
+                var task = new Button
+                {
+                    Margin = new Thickness(10),
+                    Background = new SolidColorBrush(Colors.White),
+                    Width = 225,
+                    Height = 40,
+                    Foreground = new SolidColorBrush(Colors.Black)
+                };
+                string NameOfTask;
+                TaskName newTaskName = new TaskName();
+                newTaskName.ShowDialog();
+                NameOfTask = newTaskName.Naming;
+                task.Name = NameOfTask;
+                task.Content = NameOfTask;
+
+                stackPanel.Children.Add(task);
+
+                
+
+                task.Click += new RoutedEventHandler(go_to_task_desc);
+
+            };
+           
+
             stackPanel.Children.Add(Add);
             stackPanel.Children.Add(delete);
             bord.Child = stackPanel;
@@ -97,7 +142,16 @@ namespace Project_3
             BordPanel.Children.Remove(bordsss);
         }
 
-        private void AddTask(object sender, RoutedEventArgs e)
+        private void go_to_task_desc(object sender, RoutedEventArgs e)
+        {
+            
+                scroll sc = new scroll();
+                sc.Show();
+                Hide();
+            
+        }
+
+        private Button AddTask(object sender, RoutedEventArgs e)
         {
             var task = new Button
             {
@@ -107,19 +161,11 @@ namespace Project_3
                 Height = 40,
             };
 
+            return (task);
        //     StackPanel sus = (StackPanel)LogicalTreeHelper.FindLogicalNode(BordPanel, "Bord1");
             
         }
 
-        private StackPanel Stack()
-        {
-            List<string> list = new List<string> { "govno" };
-            BordPanel.Children.Add(Column(list));
-            
-
-          
-            return (BordPanel);
-        }
 
         private Button Card(string name, StackPanel cards, int index)
         {
@@ -131,6 +177,7 @@ namespace Project_3
                 Height = 40,
                 Content = name
             };
+            
             //    task.Click += new RoutedEventHandler(AddTask);
             return task;
         }
@@ -147,3 +194,7 @@ namespace Project_3
 
 
 }
+/*
+ Юзер (логин, пароль), Доска (название, владелец, тип: частная или общественная, столбцы((айди))), столцы(название, цели) 
+ цели(участника добавить, название, содержание(в тасках))
+ */

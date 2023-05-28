@@ -28,7 +28,9 @@ C:\Users\Привет\source\repos\Project 3 main window\Project 3 main window\o
 C:\Users\Привет\source\repos\Project 3 main window\Project 3 main window\obj\Debug\net6.0-windows\Project 3 main window.pdb
 C:\Users\Привет\source\repos\Project 3 main window\Project 3 main window\obj\Debug\net6.0-windows\Project 3 main window.genruntimeconfig.cache
 C:\Users\Привет\source\repos\Project 3 main window\Project 3 main window\obj\Debug\net6.0-windows\ref\Project 3 main window.dll
-C:\Users\Привет\source\repos\Project 3 main window\Project 3 main window\obj\Debug\net6.0-windows\scroll.g.cs
-C:\Users\Привет\source\repos\Project 3 main window\Project 3 main window\obj\Debug\net6.0-windows\scroll.baml
 C:\Users\Привет\source\repos\Project 3 main window\Project 3 main window\obj\Debug\net6.0-windows\BordWindow.g.cs
 C:\Users\Привет\source\repos\Project 3 main window\Project 3 main window\obj\Debug\net6.0-windows\BordWindow.baml
+C:\Users\Привет\source\repos\Project 3 main window\Project 3 main window\obj\Debug\net6.0-windows\taskdescription.g.cs
+C:\Users\Привет\source\repos\Project 3 main window\Project 3 main window\obj\Debug\net6.0-windows\taskdescription.baml
+C:\Users\Привет\source\repos\Project 3 main window\Project 3 main window\obj\Debug\net6.0-windows\TaskName.g.cs
+C:\Users\Привет\source\repos\Project 3 main window\Project 3 main window\obj\Debug\net6.0-windows\TaskName.baml

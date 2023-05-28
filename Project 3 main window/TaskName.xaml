@@ -1,0 +1,14 @@
+﻿<Window x:Class="Project_3_main_window.TaskName"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project_3_main_window"
+        mc:Ignorable="d"
+        Title="TaskName" Height="170" Width="400">
+    <Grid Background="gray" Margin="0,0,0,-6">
+        <TextBox x:Name="Element_Name" Background="white" HorizontalAlignment="Center" Margin="0,42,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="331" Height="34" />
+        <Button Click="click_to_done_name" Content="Done" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.472,0.123"/>
+
+    </Grid>
+</Window>
