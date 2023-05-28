@@ -53,7 +53,7 @@ namespace Project_3_main_window {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Project 3;component/scroll.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Project 3 main window;component/scroll.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\scroll.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

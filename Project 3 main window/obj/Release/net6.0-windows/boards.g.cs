@@ -85,7 +85,7 @@ namespace Project_3 {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Project 3;component/boards.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Project 3 main window;component/boards.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\boards.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
