@@ -34,3 +34,39 @@ C:\Users\Привет\source\repos\Project 3 main window\Project 3 main window\o
 C:\Users\Привет\source\repos\Project 3 main window\Project 3 main window\obj\Debug\net6.0-windows\taskdescription.baml
 C:\Users\Привет\source\repos\Project 3 main window\Project 3 main window\obj\Debug\net6.0-windows\TaskName.g.cs
 C:\Users\Привет\source\repos\Project 3 main window\Project 3 main window\obj\Debug\net6.0-windows\TaskName.baml
+C:\Users\Максим\Source\Repos\t00sh0rt\TaskTrackerWPF\Project 3 main window\obj\Debug\net6.0-windows\Project 3 main window.csproj.AssemblyReference.cache
+C:\Users\Максим\Source\Repos\t00sh0rt\TaskTrackerWPF\Project 3 main window\obj\Debug\net6.0-windows\boards.g.cs
+C:\Users\Максим\Source\Repos\t00sh0rt\TaskTrackerWPF\Project 3 main window\obj\Debug\net6.0-windows\BordWindow.g.cs
+C:\Users\Максим\Source\Repos\t00sh0rt\TaskTrackerWPF\Project 3 main window\obj\Debug\net6.0-windows\MainWindow.g.cs
+C:\Users\Максим\Source\Repos\t00sh0rt\TaskTrackerWPF\Project 3 main window\obj\Debug\net6.0-windows\SignInWindow.g.cs
+C:\Users\Максим\Source\Repos\t00sh0rt\TaskTrackerWPF\Project 3 main window\obj\Debug\net6.0-windows\taskdescription.g.cs
+C:\Users\Максим\Source\Repos\t00sh0rt\TaskTrackerWPF\Project 3 main window\obj\Debug\net6.0-windows\TaskName.g.cs
+C:\Users\Максим\Source\Repos\t00sh0rt\TaskTrackerWPF\Project 3 main window\obj\Debug\net6.0-windows\App.g.cs
+C:\Users\Максим\Source\Repos\t00sh0rt\TaskTrackerWPF\Project 3 main window\obj\Debug\net6.0-windows\Project 3 main window_MarkupCompile.cache
+C:\Users\Максим\Source\Repos\t00sh0rt\TaskTrackerWPF\Project 3 main window\obj\Debug\net6.0-windows\Project 3 main window_MarkupCompile.lref
+C:\Users\Максим\Source\Repos\t00sh0rt\TaskTrackerWPF\Project 3 main window\obj\Debug\net6.0-windows\Project 3 main window.dll
+C:\Users\Максим\Source\Repos\t00sh0rt\TaskTrackerWPF\Project 3 main window\obj\Debug\net6.0-windows\refint\Project 3 main window.dll
+C:\Users\Максим\Source\Repos\t00sh0rt\TaskTrackerWPF\Project 3 main window\obj\Debug\net6.0-windows\Project 3 main window.pdb
+C:\Users\Максим\source\repos\t00sh0rt\TaskTrackerWPF\Project 3 main window\bin\Debug\net6.0-windows\Project 3 main window.exe
+C:\Users\Максим\Source\Repos\t00sh0rt\TaskTrackerWPF\Project 3 main window\bin\Debug\net6.0-windows\Project 3 main window.deps.json
+C:\Users\Максим\Source\Repos\t00sh0rt\TaskTrackerWPF\Project 3 main window\bin\Debug\net6.0-windows\Project 3 main window.runtimeconfig.json
+C:\Users\Максим\source\repos\t00sh0rt\TaskTrackerWPF\Project 3 main window\bin\Debug\net6.0-windows\Project 3 main window.dll
+C:\Users\Максим\source\repos\t00sh0rt\TaskTrackerWPF\Project 3 main window\bin\Debug\net6.0-windows\Project 3 main window.pdb
+C:\Users\Максим\source\repos\t00sh0rt\TaskTrackerWPF\Project 3 main window\bin\Debug\net6.0-windows\MaterialDesignColors.dll
+C:\Users\Максим\source\repos\t00sh0rt\TaskTrackerWPF\Project 3 main window\bin\Debug\net6.0-windows\MaterialDesignThemes.Wpf.dll
+C:\Users\Максим\source\repos\t00sh0rt\TaskTrackerWPF\Project 3 main window\bin\Debug\net6.0-windows\Microsoft.Xaml.Behaviors.dll
+C:\Users\Максим\source\repos\t00sh0rt\TaskTrackerWPF\Project 3 main window\obj\Debug\net6.0-windows\App.baml
+C:\Users\Максим\source\repos\t00sh0rt\TaskTrackerWPF\Project 3 main window\obj\Debug\net6.0-windows\boards.baml
+C:\Users\Максим\source\repos\t00sh0rt\TaskTrackerWPF\Project 3 main window\obj\Debug\net6.0-windows\BordWindow.baml
+C:\Users\Максим\source\repos\t00sh0rt\TaskTrackerWPF\Project 3 main window\obj\Debug\net6.0-windows\MainWindow.baml
+C:\Users\Максим\source\repos\t00sh0rt\TaskTrackerWPF\Project 3 main window\obj\Debug\net6.0-windows\SignInWindow.baml
+C:\Users\Максим\source\repos\t00sh0rt\TaskTrackerWPF\Project 3 main window\obj\Debug\net6.0-windows\taskdescription.baml
+C:\Users\Максим\source\repos\t00sh0rt\TaskTrackerWPF\Project 3 main window\obj\Debug\net6.0-windows\TaskName.baml
+C:\Users\Максим\source\repos\t00sh0rt\TaskTrackerWPF\Project 3 main window\obj\Debug\net6.0-windows\Project 3 main window.g.resources
+C:\Users\Максим\source\repos\t00sh0rt\TaskTrackerWPF\Project 3 main window\obj\Debug\net6.0-windows\Project 3 main window.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Максим\source\repos\t00sh0rt\TaskTrackerWPF\Project 3 main window\obj\Debug\net6.0-windows\Project 3 main window.AssemblyInfoInputs.cache
+C:\Users\Максим\source\repos\t00sh0rt\TaskTrackerWPF\Project 3 main window\obj\Debug\net6.0-windows\Project 3 main window.AssemblyInfo.cs
+C:\Users\Максим\source\repos\t00sh0rt\TaskTrackerWPF\Project 3 main window\obj\Debug\net6.0-windows\Project 3 main window.csproj.CoreCompileInputs.cache
+C:\Users\Максим\Source\Repos\t00sh0rt\TaskTrackerWPF\Project 3 main window\obj\Debug\net6.0-windows\Project 3 main window.csproj.CopyComplete
+C:\Users\Максим\Source\Repos\t00sh0rt\TaskTrackerWPF\Project 3 main window\obj\Debug\net6.0-windows\Project 3 main window.genruntimeconfig.cache
+C:\Users\Максим\Source\Repos\t00sh0rt\TaskTrackerWPF\Project 3 main window\obj\Debug\net6.0-windows\ref\Project 3 main window.dll
