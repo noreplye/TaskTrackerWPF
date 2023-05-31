@@ -29,7 +29,7 @@ namespace Project_3
             string login = Login.Text.Trim();
             string password = Password.Password.Trim();
             string ret_password = RepeatPassword.Password.Trim();
-            string email = Email.Text.Trim();
+           
 
             if ((login.Length > 12) || (login.Length < 4))
             {
@@ -48,11 +48,7 @@ namespace Project_3
                 RepeatPassword.ToolTip = "Пароль не совпадает";
                 RepeatPassword.Background = Brushes.Red;
             }
-            else if ((email.Length < 5) || (!email.Contains("@")) || (!email.Contains("."))) // Contains проверяет на наличие символа (! - отрицание, то есть отсутствие)
-            {
-                Email.ToolTip = "Неправильно введен email адрес";
-                Email.Background = Brushes.Red;
-            }
+            
             else
             {
                 Login.ToolTip = "";
@@ -61,14 +57,14 @@ namespace Project_3
                 Password.Background = Brushes.SeaGreen;
                 RepeatPassword.ToolTip = "";
                 RepeatPassword.Background = Brushes.SeaGreen;
-                Email.ToolTip = "";
-                Email.Background = Brushes.SeaGreen;
+                
 
                 MessageBox.Show("Регистрация завершена!");
 
                 SignInWindow signInWindow = new SignInWindow();
                 signInWindow.Show();
                 Hide();
+                Close();
             }
         }
         
@@ -77,6 +73,7 @@ namespace Project_3
             SignInWindow signInWindow = new SignInWindow();
             signInWindow.Show();
             Hide();
+            Close();
         }
 
        

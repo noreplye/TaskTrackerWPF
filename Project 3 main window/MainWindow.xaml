@@ -22,7 +22,7 @@
                 <TextBox x:Name="Login" materialDesign:HintAssist.Hint="Enter login" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                 <PasswordBox x:Name="Password" materialDesign:HintAssist.Hint="Enter password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
                 <PasswordBox x:Name="RepeatPassword" materialDesign:HintAssist.Hint="Repeat password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
-                <TextBox x:Name="Email" materialDesign:HintAssist.Hint="Enter email" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+               
                 <Button Content="End registration" Margin="0 20 0 0" Click="click_to_end_reg"/>
             </StackPanel>
         </Border>

@@ -48,9 +48,14 @@ namespace Project_3
                 Password.ToolTip = "";
                 Password.Background = Brushes.SeaGreen;
 
-                boards boards = new boards();
-                boards.Show();
+                //boards boards = new boards();
+                //boards.Show();
+                //Hide();
+
+                RealBoardWindow realBoardWindow = new RealBoardWindow();
+                realBoardWindow.Show();
                 Hide();
+                Close();
             }
         }
         private void go_to_reg(object sender, RoutedEventArgs e)
@@ -58,6 +63,7 @@ namespace Project_3
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             Hide();
+            Close();
         }
     }
 }

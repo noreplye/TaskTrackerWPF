@@ -29,10 +29,11 @@ namespace Project_3_main_window
             boards bord = new boards();
             bord.Show();
             Hide();
+            Close();
         }
         private void edit_text (object sender, TextChangedEventArgs e)
         {
-            
+            string Text = desc_txt.Text;
         }
     }
 }
