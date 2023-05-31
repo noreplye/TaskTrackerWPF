@@ -25,7 +25,7 @@ namespace Project_3
         {
             InitializeComponent();
         }
-        private void go_to_add_board(object sender, RoutedEventArgs e)
+        private void go_to_add_task(object sender, RoutedEventArgs e)
         {
             //  AddTask addTask = new AddTask();
             //  addTask.Show();
