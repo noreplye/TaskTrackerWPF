@@ -43,19 +43,30 @@ namespace Project_3
             }
             else
             {
-                Login.ToolTip = "";
-                Login.Background = Brushes.SeaGreen;
-                Password.ToolTip = "";
-                Password.Background = Brushes.SeaGreen;
+                int userId = BL.LogIn(login, password);
+                if (userId != 0)
+                {
+                    Login.ToolTip = "";
+                    Login.Background = Brushes.SeaGreen;
+                    Password.ToolTip = "";
+                    Password.Background = Brushes.SeaGreen;
 
-                //boards boards = new boards();
-                //boards.Show();
-                //Hide();
+                    //boards boards = new boards();
+                    //boards.Show();
+                    //Hide();
 
-                RealBoardWindow realBoardWindow = new RealBoardWindow();
-                realBoardWindow.Show();
-                Hide();
-                Close();
+                    RealBoardWindow realBoardWindow = new RealBoardWindow();
+                    realBoardWindow.Show();
+                    Hide();
+                    Close();
+                }
+                else
+                {
+                    Login.ToolTip = "Неправильный логин или пароль";
+                    Login.Background = Brushes.Red;
+                    Password.ToolTip = "Неправильный логин или пароль";
+                    Password.Background = Brushes.Red;
+                }
             }
         }
         private void go_to_reg(object sender, RoutedEventArgs e)

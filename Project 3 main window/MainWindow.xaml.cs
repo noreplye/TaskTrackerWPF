@@ -29,8 +29,7 @@ namespace Project_3
             string login = Login.Text.Trim();
             string password = Password.Password.Trim();
             string ret_password = RepeatPassword.Password.Trim();
-           
-
+            
             if ((login.Length > 12) || (login.Length < 4))
             {
                 Login.ToolTip = "Длина логина должна быть от 4 до 12 символов"; // ToolTip - подсказка
@@ -48,8 +47,12 @@ namespace Project_3
                 RepeatPassword.ToolTip = "Пароль не совпадает";
                 RepeatPassword.Background = Brushes.Red;
             }
-            
-            else
+            else if (BL.CheckLogin(login))
+            {
+                Login.ToolTip = "Логин уже занят";
+                Login.Background = Brushes.Red;
+            }
+            else 
             {
                 Login.ToolTip = "";
                 Login.Background = Brushes.SeaGreen;
@@ -58,6 +61,7 @@ namespace Project_3
                 RepeatPassword.ToolTip = "";
                 RepeatPassword.Background = Brushes.SeaGreen;
                 
+                BL.Registration(login, password);
 
                 MessageBox.Show("Регистрация завершена!");
 
