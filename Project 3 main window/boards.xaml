@@ -17,7 +17,7 @@
                     <Grid Margin="0 0 0 20">
                         <Button HorizontalAlignment="Left" Content="Add Task" Click="go_to_add_task"/>
                         <Button HorizontalAlignment="Center" Content="Delete"/>
-                        <Button HorizontalAlignment="Right" Content="Poka ne znayu"/>
+                        <Button HorizontalAlignment="Right" Content="Return Back" Click="go_to_RealBoard"/>
 
 
                     </Grid>

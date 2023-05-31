@@ -23,10 +23,10 @@
             </StackPanel>
 
         </Border>
-        
+
         <Border Margin="30,130,30,30" Grid.ColumnSpan="2" Background="LightGray" CornerRadius="15">
             <ScrollViewer>
-            <TextBlock x:Name="desc_txt" Margin="10" Width="720"/>
+                <TextBox x:Name="desc_txt" Margin="10 5 5 5" Width="720" Height="260" BorderThickness="0,0,0,1" SnapsToDevicePixels="True"/>
             </ScrollViewer>
         </Border>
     </Grid>

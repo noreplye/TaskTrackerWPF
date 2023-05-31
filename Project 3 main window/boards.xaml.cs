@@ -81,7 +81,7 @@ namespace Project_3
 
             bord.Name = BordName.Text;
 
-            stackPanel.Name = bord.Name;
+            stackPanel.Name = bord.Name;  // МАКСИМ!! ТУТ Я НАЗЫВАЮ ВСЕ ИМЕНЕМ, КОТОРОЕ ВБИВАЮ ЧЕРЕЗ ТАСКНЭЙМ, МОЖЕШЬ СДЕЛАТЬ ТАК, ЧТОБЫ ПРИ СОЗДАНИИ ЭТО НАЗВАНИЕ ЗАПОМИНАЛОСЬ, ДЛЯ ГЕНЕРАЦИИ ТАКОЙ ЖЕ ИКОНКИ!!!
             var delete = new Button
             {
                 Margin = new Thickness(10),
@@ -89,6 +89,7 @@ namespace Project_3
                 Height = 40,
                 Content = "Delete Card",
                 Name = bord.Name,
+                Background = new SolidColorBrush(Colors.DarkRed),
             };
             var Add = new Button
             {
@@ -148,7 +149,15 @@ namespace Project_3
                 scroll sc = new scroll();
                 sc.Show();
                 Hide();
-            
+                Close();
+        }
+
+        private void go_to_RealBoard(object sender, RoutedEventArgs e)
+        {
+            RealBoardWindow window = new RealBoardWindow();
+            window.Show();
+            Hide();
+            Close();
         }
 
         private Button AddTask(object sender, RoutedEventArgs e)

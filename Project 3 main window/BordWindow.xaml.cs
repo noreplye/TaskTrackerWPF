@@ -26,6 +26,7 @@ namespace Project_3
         private void Click_To_Close_Task(object sender, RoutedEventArgs e)
         {
             Hide();
+            Close();
         }
     }
 }
