@@ -20,9 +20,11 @@ namespace Project_3
     /// </summary>
     public partial class MainWindow : Window
     {
+        
         public MainWindow()
         {
             InitializeComponent();
+            
         }
         private void click_to_end_reg(object sender, RoutedEventArgs e)  //получаю данные для регистрации, Trim - не учитывает пробелы до и после ввода
         {

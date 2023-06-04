@@ -22,6 +22,7 @@ namespace Project_3
 
     public partial class RealBoardWindow: Window
     {
+        int userId;
         public RealBoardWindow()
         {
             InitializeComponent();
@@ -30,14 +31,30 @@ namespace Project_3
         {
             //  AddTask addTask = new AddTask();
             //  addTask.Show();
-            Stack();
+            Stack(1);
             
         }
-    
-        
-        
-        private Border Column(List<string> names)
+        public RealBoardWindow(int userId)
         {
+            InitializeComponent();
+            this.userId = userId;
+            Stack(2);
+
+        }
+
+
+        private Border Column(int select,Board myBoard)
+        {
+
+            if (select == 1)
+            {
+                TaskName Bord_Name = new TaskName();
+                Bord_Name.ShowDialog();
+                BL.AddBoard(Bord_Name.Naming, 1, userId);
+                Stack(2);
+                return null;
+            }
+
             Border board = new Border()
             {
                 Margin = new Thickness(10),
@@ -51,13 +68,7 @@ namespace Project_3
             
            
             StackPanel stackPanel = new StackPanel();
-            //if (names != null)
-            //{
-            //    foreach (string name in names)
-            //    {
-            //        stackPanel.Children.Add(Board(name, stackPanel, stackPanel.Children.Count));
-            //    }
-            //}
+            
             TextBlock BordName = new TextBlock()
             {
 
@@ -65,72 +76,84 @@ namespace Project_3
                 VerticalAlignment = VerticalAlignment.Top,
                 HorizontalAlignment = HorizontalAlignment.Center,
             };
-            TaskName Bord_Name = new TaskName();
-            Bord_Name.ShowDialog();
-            BordName.Text = Bord_Name.Naming;
-            stackPanel.Children.Add(BordName);
-
-            board.Name = BordName.Text; // МАКСИМ!! ТУТ Я НАЗЫВАЮ ВСЕ ИМЕНЕМ, КОТОРОЕ ВБИВАЮ ЧЕРЕЗ ТАСКНЭЙМ, МОЖЕШЬ СДЕЛАТЬ ТАК, ЧТОБЫ ПРИ СОЗДАНИИ ЭТО НАЗВАНИЕ ЗАПОМИНАЛОСЬ, ДЛЯ ГЕНЕРАЦИИ ТАКОЙ ЖЕ ИКОНКИ!!!
 
             
 
 
-            stackPanel.Name = board.Name;
-            var delete = new Button
-            {
-                Margin = new Thickness(10),
-                Width = 225,
-                Height = 40,
-                Content = "Delete Board",
-                Background = new SolidColorBrush(Colors.DarkRed),
-                Name = board.Name,
-            };
-            var view = new Button
-            {
-                Margin = new Thickness(10),
-                Width = 100,
-                Height = 100,
-                Content = "View"
-            };
 
+            
 
+            
 
-            delete.Click += (s, e) =>
+            if (select == 2)
             {
-                Border bordss = (Border)LogicalTreeHelper.FindLogicalNode(BordPanel, delete.Name);
-                BordPanel.Children.Remove(bordss);
-            };
-            view.Click += (s, e) =>
-            {
-                var task = new Button
+
+                BordName.Text = myBoard.name;
+                stackPanel.Children.Add(BordName);
+                board.Name = BordName.Text; // МАКСИМ!! ТУТ Я НАЗЫВАЮ ВСЕ ИМЕНЕМ, КОТОРОЕ ВБИВАЮ ЧЕРЕЗ ТАСКНЭЙМ, МОЖЕШЬ СДЕЛАТЬ ТАК, ЧТОБЫ ПРИ СОЗДАНИИ ЭТО НАЗВАНИЕ ЗАПОМИНАЛОСЬ, ДЛЯ ГЕНЕРАЦИИ ТАКОЙ ЖЕ ИКОНКИ!!!
+
+                stackPanel.Name = board.Name;
+                var delete = new Button
                 {
                     Margin = new Thickness(10),
-                    Background = new SolidColorBrush(Colors.Black),
                     Width = 225,
                     Height = 40,
+                    Content = "Delete Board",
+                    Background = new SolidColorBrush(Colors.DarkRed),
+                    Name ="a"+ Convert.ToString(myBoard.id),
                 };
-                stackPanel.Children.Add(task);
-                boards boards = new boards();
-                boards.Show();
-                Hide();
-                Close();
-                
-            };
-            //     += (s, e) =>
-            // {
-            //     var task = new Button
-            //     {
-            //         Margin = new Thickness(10),
-            //         Background = new SolidColorBrush(Colors.White),
-            //         Width = 225,
-            //         Height = 40,
-            //     };
-            //     stackPanel.Children.Add(task);
-            // };
-            stackPanel.Children.Add(view);
-            stackPanel.Children.Add(delete);
-            board.Child = stackPanel;
-            return (board);
+                var view = new Button
+                {
+                    Margin = new Thickness(10),
+                    Width = 100,
+                    Height = 100,
+                    Content = "View"
+                };
+                delete.Click += (s, e) =>
+                {
+                    var myid=myBoard.id;
+                    BL.RemoveBoard(myBoard.id);
+                    Stack(2);
+                    
+                };
+                view.Click += (s, e) =>
+                {
+                    var task = new Button
+                    {
+                        Margin = new Thickness(10),
+                        Background = new SolidColorBrush(Colors.Black),
+                        Width = 225,
+                        Height = 40,
+                    };
+                    stackPanel.Children.Add(task);
+                    boards boards = new boards();
+                    boards.Show();
+                    Hide();
+                    Close();
+
+                };
+
+
+
+
+                //     += (s, e) =>
+                // {
+                //     var task = new Button
+                //     {
+                //         Margin = new Thickness(10),
+                //         Background = new SolidColorBrush(Colors.White),
+                //         Width = 225,
+                //         Height = 40,
+                //     };
+                //     stackPanel.Children.Add(task);
+                // };
+
+                stackPanel.Children.Add(view);
+                stackPanel.Children.Add(delete);
+                board.Child = stackPanel;
+            }
+                return (board);
+           
         }
         
         //private void DeleteBoard(object sender, RoutedEventArgs e)
@@ -139,10 +162,23 @@ namespace Project_3
         //    BordPanel.Children.Remove(bordsss);
         //}
       
-        private StackPanel Stack()
+        private StackPanel Stack(int select)
         {
-            List<string> list = new List<string> { "govno" };
-            BordPanel.Children.Add(Column(list));
+            if (select == 1)
+            {
+                Column(select,null);
+            }
+            if (select == 2)
+            {
+                var myBoards = BL.GetMyBoards(userId);
+                BordPanel.Children.Clear();
+                foreach (var mb in  myBoards)
+                {
+                    BordPanel.Children.Add(Column(select,mb));
+                }
+                
+            }
+            
             
         
           

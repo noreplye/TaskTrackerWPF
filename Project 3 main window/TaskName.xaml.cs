@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -27,7 +28,8 @@ namespace Project_3_main_window
         private void click_to_done_name(object sender, RoutedEventArgs e)
         {
             Naming = Element_Name.Text.Trim();
-            this.Close();
+            
+            Close();
         }
 
     }

@@ -8,7 +8,7 @@
         Title="TaskName" Height="170" Width="400">
     <Grid Background="gray" Margin="0,0,0,-6">
         <TextBlock Text="Print name" HorizontalAlignment="Center" Margin="0,10,0,130"/>
-        <TextBox x:Name="Element_Name" Background="white" HorizontalAlignment="Center" Margin="0,42,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="331" Height="34" ToolTip="Print name"/>
+        <TextBox x:Name="Element_Name" Background="white" HorizontalAlignment="Center" Margin="0,42,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="331" Height="34" ToolTip="Print name" MaxLength="32"/>
         <Button Click="click_to_done_name" Content="Done" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.472,0.123"/>
 
     </Grid>

@@ -19,6 +19,7 @@ namespace Project_3
     /// </summary>
     public partial class SignInWindow : Window
     {
+        int userId;
         public SignInWindow()
         {
             InitializeComponent();
@@ -54,6 +55,7 @@ namespace Project_3
                     //boards boards = new boards();
                     //boards.Show();
                     //Hide();
+                    this.userId = userId;
                     go_to_menu(sender, e);
                     
                 }
@@ -79,7 +81,7 @@ namespace Project_3
         }
         private void go_to_menu(object sender, RoutedEventArgs e)
         {
-            RealBoardWindow realBoardWindow = new RealBoardWindow();
+            RealBoardWindow realBoardWindow = new RealBoardWindow(userId);
             realBoardWindow.Top = Top;
             realBoardWindow.Left = Left;
             realBoardWindow.Width = Width;

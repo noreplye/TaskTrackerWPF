@@ -35,10 +35,7 @@
         
         <Border BorderBrush="Black" BorderThickness="1" Margin="50,170,50,30" Background="#34AD45" CornerRadius ="15">
             <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-                <StackPanel x:Name="BordPanel">
-                
-                
-                </StackPanel>
+                <StackPanel x:Name="BordPanel"/>
             </ScrollViewer>
         </Border>
     </Grid>
