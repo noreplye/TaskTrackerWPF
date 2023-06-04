@@ -54,11 +54,8 @@ namespace Project_3
                     //boards boards = new boards();
                     //boards.Show();
                     //Hide();
-
-                    RealBoardWindow realBoardWindow = new RealBoardWindow();
-                    realBoardWindow.Show();
-                    Hide();
-                    Close();
+                    go_to_menu(sender, e);
+                    
                 }
                 else
                 {
@@ -72,7 +69,22 @@ namespace Project_3
         private void go_to_reg(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();
+            mainWindow.Top = Top;
+            mainWindow.Left = Left;
+            mainWindow.Width = Width;
+            mainWindow.Height = Height;
             mainWindow.Show();
+            Hide();
+            Close();
+        }
+        private void go_to_menu(object sender, RoutedEventArgs e)
+        {
+            RealBoardWindow realBoardWindow = new RealBoardWindow();
+            realBoardWindow.Top = Top;
+            realBoardWindow.Left = Left;
+            realBoardWindow.Width = Width;
+            realBoardWindow.Height=Height;
+            realBoardWindow.Show();
             Hide();
             Close();
         }

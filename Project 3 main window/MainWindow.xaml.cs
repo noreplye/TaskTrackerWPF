@@ -64,22 +64,21 @@ namespace Project_3
                 BL.Registration(login, password);
 
                 MessageBox.Show("Регистрация завершена!");
-
-                SignInWindow signInWindow = new SignInWindow();
-                signInWindow.Show();
-                Hide();
-                Close();
+                go_to_sign(sender, e);
             }
         }
         
         private void go_to_sign(object sender, RoutedEventArgs e)
         {
             SignInWindow signInWindow = new SignInWindow();
+            signInWindow.Top = Top;
+            signInWindow.Left = Left;
+            signInWindow.Width = Width;
+            signInWindow.Height = Height;
             signInWindow.Show();
             Hide();
             Close();
         }
-
        
     }
 }
