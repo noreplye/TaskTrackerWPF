@@ -5,7 +5,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:Project_3_main_window"
         mc:Ignorable="d"
-        Title="real_true_bords_official_not_fake" Height="450" Width="800">
+        Title="Task Tracker: Boards" Height="450" Width="800">
     <Grid Background="#7DE38C">
         
         <Border x:Name="Boards_Window" MinWidth="400" Margin="40" Background="#34AD45" Padding="30" MaxWidth="900" CornerRadius="15" Height="95" VerticalAlignment="Top">

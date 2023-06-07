@@ -186,6 +186,14 @@ namespace Project_3
                 columnContext.SaveChanges();
             }
         }
+        public static string GetUserLogin(int userId)
+        {
+            using(UserContext userContext = new UserContext())
+            {
+                var user=userContext.Users.Where(u=>u.id == userId).FirstOrDefault();
+                return user.login;
+            }
+        }
 
     }
     

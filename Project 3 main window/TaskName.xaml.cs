@@ -28,8 +28,16 @@ namespace Project_3_main_window
         private void click_to_done_name(object sender, RoutedEventArgs e)
         {
             Naming = Element_Name.Text.Trim();
+            if (!Char.IsLetter(Naming[0]))
+            {
+                Element_Name.ToolTip = "Название должно начинаться с буквы";
+                Element_Name.Background = Brushes.Red;
+            }
+            else
+            {
+                Close();
+            }
             
-            Close();
         }
 
     }

@@ -48,6 +48,7 @@ namespace Project_3
             InitializeComponent();
             this.userId = userId;
             this.boardId = boardId;
+            Title = Title + ": " + BL.GetBoard(boardId).name+": User: "+BL.GetUserLogin(userId);
             foreach (var item in BL.GetColumns(boardId))
             {
                 BordPanel.Children.Add(Column(2, item));
@@ -103,6 +104,7 @@ namespace Project_3
             if (select == 2)
             {
                 BordName.Text = column.name;
+                
                 stackPanel.Children.Add(BordName);
 
                 bord.Name = BordName.Text;

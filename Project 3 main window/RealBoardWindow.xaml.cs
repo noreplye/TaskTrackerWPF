@@ -51,6 +51,7 @@ namespace Project_3
         {
             InitializeComponent();
             this.userId = userId;
+            Title =Title+ ": User: "+BL.GetUserLogin(userId);
             Stack(2);
 
         }
@@ -103,14 +104,7 @@ namespace Project_3
 
                 BordName.Text = myBoard.name;
                 stackPanel.Children.Add(BordName);
-                if (Char.IsDigit(BordName.Text[0]))
-                {
-                    board.Name = "e" + BordName.Text;
-                }
-                else
-                {
-                    board.Name = BordName.Text;
-                } // МАКСИМ!! ТУТ Я НАЗЫВАЮ ВСЕ ИМЕНЕМ, КОТОРОЕ ВБИВАЮ ЧЕРЕЗ ТАСКНЭЙМ, МОЖЕШЬ СДЕЛАТЬ ТАК, ЧТОБЫ ПРИ СОЗДАНИИ ЭТО НАЗВАНИЕ ЗАПОМИНАЛОСЬ, ДЛЯ ГЕНЕРАЦИИ ТАКОЙ ЖЕ ИКОНКИ!!!
+                board.Name = BordName.Text;// МАКСИМ!! ТУТ Я НАЗЫВАЮ ВСЕ ИМЕНЕМ, КОТОРОЕ ВБИВАЮ ЧЕРЕЗ ТАСКНЭЙМ, МОЖЕШЬ СДЕЛАТЬ ТАК, ЧТОБЫ ПРИ СОЗДАНИИ ЭТО НАЗВАНИЕ ЗАПОМИНАЛОСЬ, ДЛЯ ГЕНЕРАЦИИ ТАКОЙ ЖЕ ИКОНКИ!!!
 
                 stackPanel.Name = board.Name;
                 var delete = new Button
