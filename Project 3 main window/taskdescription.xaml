@@ -7,10 +7,7 @@
         mc:Ignorable="d"
         Title="taskdescription" Height="450" Width="800">
     <Grid Background="#7DE38C">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
+
         <Border Background="#34AD45" BorderThickness="1" Margin="30,30,30,340" CornerRadius="15" Grid.ColumnSpan="2">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="30" Color="LightGreen" ShadowDepth="0"/>
@@ -24,10 +21,10 @@
 
         </Border>
 
-        <Border Margin="30,130,30,30" Grid.ColumnSpan="2" Background="LightGray" CornerRadius="15">
-            <ScrollViewer>
-                <TextBox x:Name="desc_txt" Margin="10 5 5 5" Width="720" Height="260" BorderThickness="0,0,0,1" SnapsToDevicePixels="True"/>
-            </ScrollViewer>
+        <Border Margin="0,99,0,0" Background="LightGray" CornerRadius="10" HorizontalAlignment="Center" Width="740" Height="303" VerticalAlignment="Top">
+
+            <TextBox  x:Name="desc_txt" AcceptsReturn="True" Margin="10,22,10,21" BorderThickness="0,0,0,1" SnapsToDevicePixels="True" VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Top" AutomationProperties.HelpText="" HorizontalScrollBarVisibility="Auto" Grid.IsSharedSizeScope="True"/>
+
         </Border>
     </Grid>
 </Window>

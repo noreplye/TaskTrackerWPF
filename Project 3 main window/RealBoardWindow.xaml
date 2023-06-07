@@ -14,8 +14,9 @@
             </Border.Effect>
             <StackPanel x:Name="Panelka">
                 <Grid Margin="0 0 0 20">
-                    <Button HorizontalAlignment="Center" Content="Add Board" Click="go_to_add_board"/>
-                    
+                    <Button HorizontalAlignment="Left" Content="Add Board" Click="go_to_add_board"/>
+                    <TextBlock x:Name="Login"  HorizontalAlignment="Center"/>
+                    <Button HorizontalAlignment="Right" Content="Sign out" Click="go_to_sign_window"/>
 
 
                 </Grid>
