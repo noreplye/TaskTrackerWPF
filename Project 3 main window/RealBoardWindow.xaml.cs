@@ -27,6 +27,18 @@ namespace Project_3
         {
             InitializeComponent();
         }
+
+        private void go_to_sign_window(object sender, EventArgs e)
+        {
+            SignInWindow signInWindow = new SignInWindow();
+            signInWindow.Top = Top;
+            signInWindow.Left = Left;
+            signInWindow.Width = Width;
+            signInWindow.Height = Height;
+            signInWindow.Show();
+            Hide();
+            Close();
+        }
         private void go_to_add_board(object sender, RoutedEventArgs e)
         {
             //  AddTask addTask = new AddTask();
@@ -133,6 +145,22 @@ namespace Project_3
 
                 };
 
+                var reName = new Button
+                {
+                    Margin = new Thickness(10),
+                    Width = 225,
+                    Height = 40,
+                    Content = "Rename",
+
+                };
+                reName.Click += (s, e) =>
+                {
+                    TaskName Bord_Name = new TaskName();
+                    Bord_Name.ShowDialog();
+                    BordName.Text = Bord_Name.Naming;
+                   
+                };  //Максим, добавил кнопку для переименования, тут надо в бдшке поменять delete.Name, stackPanel.Name, bord.Name, BordName.Text на Bord_Name.Naming
+
 
 
 
@@ -147,7 +175,7 @@ namespace Project_3
                 //     };
                 //     stackPanel.Children.Add(task);
                 // };
-
+                stackPanel.Children.Add(reName);
                 stackPanel.Children.Add(view);
                 stackPanel.Children.Add(delete);
                 board.Child = stackPanel;

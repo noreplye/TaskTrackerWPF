@@ -74,6 +74,7 @@ namespace Project_3
                 VerticalAlignment = VerticalAlignment.Top,
                 HorizontalAlignment = HorizontalAlignment.Center,
             };
+
             TaskName Bord_Name = new TaskName();
             Bord_Name.ShowDialog();
             BordName.Text = Bord_Name.Naming;
@@ -81,7 +82,23 @@ namespace Project_3
 
             bord.Name = BordName.Text;
 
-            stackPanel.Name = bord.Name;  // МАКСИМ!! ТУТ Я НАЗЫВАЮ ВСЕ ИМЕНЕМ, КОТОРОЕ ВБИВАЮ ЧЕРЕЗ ТАСКНЭЙМ, МОЖЕШЬ СДЕЛАТЬ ТАК, ЧТОБЫ ПРИ СОЗДАНИИ ЭТО НАЗВАНИЕ ЗАПОМИНАЛОСЬ, ДЛЯ ГЕНЕРАЦИИ ТАКОЙ ЖЕ ИКОНКИ!!!
+            stackPanel.Name = bord.Name; // МАКСИМ!! ТУТ Я НАЗЫВАЮ ВСЕ ИМЕНЕМ, КОТОРОЕ ВБИВАЮ ЧЕРЕЗ ТАСКНЭЙМ, МОЖЕШЬ СДЕЛАТЬ ТАК, ЧТОБЫ ПРИ СОЗДАНИИ ЭТО НАЗВАНИЕ ЗАПОМИНАЛОСЬ, ДЛЯ ГЕНЕРАЦИИ ТАКОЙ ЖЕ ИКОНКИ!!!
+
+            var reName = new Button
+            {
+                Margin = new Thickness(10),
+                Width = 225,
+                Height = 40,
+                Content = "Rename",
+                
+            };
+            reName.Click += (s, e) => //Максим, добавил кнопку для переименования, тут надо в бдшке поменять delete.Name, stackPanel.Name, bord.Name, BordName.Text на Bord_Name.Naming
+            {
+                TaskName Bord_Name = new TaskName();
+                Bord_Name.ShowDialog();
+                BordName.Text = Bord_Name.Naming; 
+            }; 
+
             var delete = new Button
             {
                 Margin = new Thickness(10),
@@ -96,8 +113,8 @@ namespace Project_3
                 Margin = new Thickness(10),
                 Width = 225,
                 Height = 40,
-                Content = "Add Task"
-
+                Content = "Add Task",
+                
             };
             // delete.Click += new RoutedEventHandler(DeleteCard);
             delete.Click += (s, e) =>
@@ -122,15 +139,17 @@ namespace Project_3
                 task.Name = NameOfTask;
                 task.Content = NameOfTask;
 
-                stackPanel.Children.Add(task);
+              
 
+                stackPanel.Children.Add(task);
+                
                 
 
                 task.Click += new RoutedEventHandler(go_to_task_desc);
-
+                
             };
-           
 
+            stackPanel.Children.Add(reName);
             stackPanel.Children.Add(Add);
             stackPanel.Children.Add(delete);
             bord.Child = stackPanel;
@@ -146,15 +165,23 @@ namespace Project_3
         private void go_to_task_desc(object sender, RoutedEventArgs e)
         {
             
-                scroll sc = new scroll();
-                sc.Show();
-                Hide();
-                Close();
+            scroll sc = new scroll();
+            sc.Width = Width; 
+            sc.Height = Height;
+            sc.Top = Top;
+            sc.Left = Left;
+            sc.Show();
+            Hide();
+            Close();
         }
 
         private void go_to_RealBoard(object sender, RoutedEventArgs e)
         {
             RealBoardWindow window = new RealBoardWindow();
+            window.Top = Top;
+            window.Left = Left;
+            window.Width = Width;
+            window.Height = Height;
             window.Show();
             Hide();
             Close();

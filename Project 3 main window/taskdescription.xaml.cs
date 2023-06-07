@@ -28,6 +28,8 @@ namespace Project_3_main_window
         {
             boards bord = new boards();
             bord.Show();
+            bord.Top = Top; bord.Left = Left;
+            bord.Width = Width; bord.Height = Height;
             Hide();
             Close();
         }
