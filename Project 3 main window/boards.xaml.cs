@@ -1,4 +1,5 @@
-﻿using Project_3_main_window;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Project_3_main_window;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,8 @@ namespace Project_3
     /// </summary>
     public partial class boards : Window
     {
+        int userId;
+        int boardId;
         public boards()
         {
             InitializeComponent();
@@ -31,10 +34,26 @@ namespace Project_3
             //  addTask.Show();
 
 
-            BordPanel.Children.Add(Column());
+            Column(1, null);
+            BordPanel.Children.Clear();
+            foreach (var item in BL.GetColumns(boardId))
+            {
+                BordPanel.Children.Add(Column(2, item));
+            }
+
+
+        }
+        public boards(int userId, int boardId)
+        {
+            InitializeComponent();
+            this.userId = userId;
+            this.boardId = boardId;
+            foreach (var item in BL.GetColumns(boardId))
+            {
+                BordPanel.Children.Add(Column(2, item));
+            }
             
         }
-
         //public void CreateButton (object sender, RoutedEventArgs e)
         //{
         //    int StartX = 100;
@@ -49,7 +68,7 @@ namespace Project_3
 
 
         //}
-        private Border Column()
+        private Border Column(int select,Column column)
         {
             Border bord = new Border()
             {
@@ -74,85 +93,102 @@ namespace Project_3
                 VerticalAlignment = VerticalAlignment.Top,
                 HorizontalAlignment = HorizontalAlignment.Center,
             };
-
-            TaskName Bord_Name = new TaskName();
-            Bord_Name.ShowDialog();
-            BordName.Text = Bord_Name.Naming;
-            stackPanel.Children.Add(BordName);
-
-            bord.Name = BordName.Text;
-
-            stackPanel.Name = bord.Name; // МАКСИМ!! ТУТ Я НАЗЫВАЮ ВСЕ ИМЕНЕМ, КОТОРОЕ ВБИВАЮ ЧЕРЕЗ ТАСКНЭЙМ, МОЖЕШЬ СДЕЛАТЬ ТАК, ЧТОБЫ ПРИ СОЗДАНИИ ЭТО НАЗВАНИЕ ЗАПОМИНАЛОСЬ, ДЛЯ ГЕНЕРАЦИИ ТАКОЙ ЖЕ ИКОНКИ!!!
-
-            var reName = new Button
-            {
-                Margin = new Thickness(10),
-                Width = 225,
-                Height = 40,
-                Content = "Rename",
-                
-            };
-            reName.Click += (s, e) => //Максим, добавил кнопку для переименования, тут надо в бдшке поменять delete.Name, stackPanel.Name, bord.Name, BordName.Text на Bord_Name.Naming
+            if (select == 1)
             {
                 TaskName Bord_Name = new TaskName();
                 Bord_Name.ShowDialog();
-                BordName.Text = Bord_Name.Naming; 
-            }; 
+                BL.AddColumn(boardId, Bord_Name.Naming);
+                return null;
+            }
+            if (select == 2)
+            {
+                BordName.Text = column.name;
+                stackPanel.Children.Add(BordName);
 
-            var delete = new Button
-            {
-                Margin = new Thickness(10),
-                Width = 225,
-                Height = 40,
-                Content = "Delete Card",
-                Name = bord.Name,
-                Background = new SolidColorBrush(Colors.DarkRed),
-            };
-            var Add = new Button
-            {
-                Margin = new Thickness(10),
-                Width = 225,
-                Height = 40,
-                Content = "Add Task",
-                
-            };
-            // delete.Click += new RoutedEventHandler(DeleteCard);
-            delete.Click += (s, e) =>
-            {
-                Border bordsss = (Border)LogicalTreeHelper.FindLogicalNode(BordPanel, delete.Name);
-                BordPanel.Children.Remove(bordsss);
-            };
-            Add.Click += (s, e) =>
-            {
-                var task = new Button
+                bord.Name = BordName.Text;
+
+                stackPanel.Name = bord.Name; // МАКСИМ!! ТУТ Я НАЗЫВАЮ ВСЕ ИМЕНЕМ, КОТОРОЕ ВБИВАЮ ЧЕРЕЗ ТАСКНЭЙМ, МОЖЕШЬ СДЕЛАТЬ ТАК, ЧТОБЫ ПРИ СОЗДАНИИ ЭТО НАЗВАНИЕ ЗАПОМИНАЛОСЬ, ДЛЯ ГЕНЕРАЦИИ ТАКОЙ ЖЕ ИКОНКИ!!!
+
+                var reName = new Button
                 {
                     Margin = new Thickness(10),
-                    Background = new SolidColorBrush(Colors.White),
                     Width = 225,
                     Height = 40,
-                    Foreground = new SolidColorBrush(Colors.Black)
+                    Content = "Rename",
+
                 };
-                string NameOfTask;
-                TaskName newTaskName = new TaskName();
-                newTaskName.ShowDialog();
-                NameOfTask = newTaskName.Naming;
-                task.Name = NameOfTask;
-                task.Content = NameOfTask;
+                reName.Click += (s, e) => //Максим, добавил кнопку для переименования, тут надо в бдшке поменять delete.Name, stackPanel.Name, bord.Name, BordName.Text на Bord_Name.Naming
+                {
+                    TaskName Bord_Name = new TaskName();
+                    Bord_Name.ShowDialog();
+                    BL.RenameColumn(column.id,Bord_Name.Naming);
+                    BordPanel.Children.Clear();
+                    foreach (var item in BL.GetColumns(boardId))
+                    {
+                        BordPanel.Children.Add(Column(2, item));
+                    }
+                };
 
-              
+                var delete = new Button
+                {
+                    Margin = new Thickness(10),
+                    Width = 225,
+                    Height = 40,
+                    Content = "Delete Card",
+                    Name = bord.Name,
+                    Background = new SolidColorBrush(Colors.DarkRed),
+                };
+                var Add = new Button
+                {
+                    Margin = new Thickness(10),
+                    Width = 225,
+                    Height = 40,
+                    Content = "Add Task",
 
-                stackPanel.Children.Add(task);
-                
-                
+                };
+                // delete.Click += new RoutedEventHandler(DeleteCard);
+                delete.Click += (s, e) =>
+                {
+                    BL.RemoveColumn(column.id);
+                    BordPanel.Children.Clear();
+                    foreach (var item in BL.GetColumns(boardId))
+                    {
+                        BordPanel.Children.Add(Column(2, item));
+                    }
+                    
+                };
+                Add.Click += (s, e) =>
+                {
+                    var task = new Button
+                    {
+                        Margin = new Thickness(10),
+                        Background = new SolidColorBrush(Colors.White),
+                        Width = 225,
+                        Height = 40,
+                        Foreground = new SolidColorBrush(Colors.Black)
+                    };
+                    string NameOfTask;
+                    TaskName newTaskName = new TaskName();
+                    newTaskName.ShowDialog();
+                    NameOfTask = newTaskName.Naming;
+                    task.Name = NameOfTask;
+                    task.Content = NameOfTask;
 
-                task.Click += new RoutedEventHandler(go_to_task_desc);
-                
-            };
 
-            stackPanel.Children.Add(reName);
-            stackPanel.Children.Add(Add);
-            stackPanel.Children.Add(delete);
-            bord.Child = stackPanel;
+
+                    stackPanel.Children.Add(task);
+
+
+
+                    task.Click += new RoutedEventHandler(go_to_task_desc);
+
+                };
+
+                stackPanel.Children.Add(reName);
+                stackPanel.Children.Add(Add);
+                stackPanel.Children.Add(delete);
+                bord.Child = stackPanel;
+            }
             return (bord);
         }
 
@@ -177,7 +213,7 @@ namespace Project_3
 
         private void go_to_RealBoard(object sender, RoutedEventArgs e)
         {
-            RealBoardWindow window = new RealBoardWindow();
+            RealBoardWindow window = new RealBoardWindow(userId);
             window.Top = Top;
             window.Left = Left;
             window.Width = Width;

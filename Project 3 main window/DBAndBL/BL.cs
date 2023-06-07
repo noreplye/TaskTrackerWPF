@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -109,6 +110,16 @@ namespace Project_3
             }
             return boards.ToArray();
         }
+        public static void RenameBoard(int boardId, string newName)
+        {
+            using (BoardContext boardContext = new BoardContext())
+            {
+                var llo = boardContext.Boards.Where(bo => bo.id == boardId).FirstOrDefault();
+                llo.name=newName;
+                
+                boardContext.SaveChanges();
+            }
+        }
         public static void RemoveBoard(int boardId)
         {
             using (BoardOwnerContext boardOwnerContext = new BoardOwnerContext())
@@ -135,5 +146,47 @@ namespace Project_3
             }
 
         }
+        public static void AddColumn(int boardId,string name)
+        {
+            Column column = new Column();
+            column.name = name;
+            column.boardId = boardId;
+            using (ColumnContext  columnContext = new ColumnContext())
+            {
+                columnContext.Columns.Add(column);
+                columnContext.SaveChanges();
+            }
+        }
+        public static Column[] GetColumns(int boardId)
+        {
+            List<Column> columns = new List<Column>();
+            using (ColumnContext columnContext = new ColumnContext())
+            {
+                    columns=(columnContext.Columns.Where(b => b.boardId == boardId)).ToList<Column>();
+            }
+            return columns.ToArray();
+        }
+        public static void RemoveColumn(int columnId)
+        {
+            
+            using (ColumnContext columnContext = new ColumnContext())
+            {
+                var column = columnContext.Columns.Where(b => b.id == columnId).FirstOrDefault();
+                columnContext.Columns.Remove(column);
+                columnContext.SaveChanges();
+            }
+        }
+        public static void RenameColumn(int columnId, string newName)
+        {
+            using (ColumnContext columnContext = new ColumnContext())
+            {
+                var llo = columnContext.Columns.Where(bo => bo.id == columnId).FirstOrDefault();
+                llo.name = newName;
+
+                columnContext.SaveChanges();
+            }
+        }
+
     }
+    
 }

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -102,7 +103,14 @@ namespace Project_3
 
                 BordName.Text = myBoard.name;
                 stackPanel.Children.Add(BordName);
-                board.Name = BordName.Text; // МАКСИМ!! ТУТ Я НАЗЫВАЮ ВСЕ ИМЕНЕМ, КОТОРОЕ ВБИВАЮ ЧЕРЕЗ ТАСКНЭЙМ, МОЖЕШЬ СДЕЛАТЬ ТАК, ЧТОБЫ ПРИ СОЗДАНИИ ЭТО НАЗВАНИЕ ЗАПОМИНАЛОСЬ, ДЛЯ ГЕНЕРАЦИИ ТАКОЙ ЖЕ ИКОНКИ!!!
+                if (Char.IsDigit(BordName.Text[0]))
+                {
+                    board.Name = "e" + BordName.Text;
+                }
+                else
+                {
+                    board.Name = BordName.Text;
+                } // МАКСИМ!! ТУТ Я НАЗЫВАЮ ВСЕ ИМЕНЕМ, КОТОРОЕ ВБИВАЮ ЧЕРЕЗ ТАСКНЭЙМ, МОЖЕШЬ СДЕЛАТЬ ТАК, ЧТОБЫ ПРИ СОЗДАНИИ ЭТО НАЗВАНИЕ ЗАПОМИНАЛОСЬ, ДЛЯ ГЕНЕРАЦИИ ТАКОЙ ЖЕ ИКОНКИ!!!
 
                 stackPanel.Name = board.Name;
                 var delete = new Button
@@ -138,8 +146,12 @@ namespace Project_3
                         Height = 40,
                     };
                     stackPanel.Children.Add(task);
-                    boards boards = new boards();
-                    boards.Show();
+                    boards _boards = new boards(userId,myBoard.id);
+                    _boards.Top = Top;
+                    _boards.Left = Left;
+                    
+
+                    _boards.Show();
                     Hide();
                     Close();
 
@@ -157,7 +169,8 @@ namespace Project_3
                 {
                     TaskName Bord_Name = new TaskName();
                     Bord_Name.ShowDialog();
-                    BordName.Text = Bord_Name.Naming;
+                    BL.RenameBoard(myBoard.id, Bord_Name.Naming);
+                    Stack(2);
                    
                 };  //Максим, добавил кнопку для переименования, тут надо в бдшке поменять delete.Name, stackPanel.Name, bord.Name, BordName.Text на Bord_Name.Naming
 
