@@ -3,6 +3,7 @@ using Project_3_main_window;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -53,6 +54,7 @@ namespace Project_3
             {
                 BordPanel.Children.Add(Column(2, item));
             }
+
             
         }
         //public void CreateButton (object sender, RoutedEventArgs e)
@@ -103,14 +105,41 @@ namespace Project_3
             }
             if (select == 2)
             {
+                
                 BordName.Text = column.name;
                 
-                stackPanel.Children.Add(BordName);
+                foreach (var item in BL.GetTasks(column.id))
+                {
+                    var task = new Button
+                    {
+                        Margin = new Thickness(10),
+                        Background = new SolidColorBrush(Colors.White),
+                        Width = 225,
+                        Height = 40,
+                        Foreground = new SolidColorBrush(Colors.Black)
+                    };
+                    task.Name = item.name;
+                    task.Content = item.name;
+                    task.Click += (s, e) =>
+                    {
+                        scroll sc = new scroll(userId, boardId, column.id,item.id);
+                        sc.Width = Width;
+                        sc.Height = Height;
+                        sc.Top = Top;
+                        sc.Left = Left;
+                        sc.desc_txt.Text=BL.GetDesc(item.id);
+                        sc.Show();
+                        Hide();
+                        Close();
+                    };
+                    stackPanel.Children.Add(task);
+                }
+                
 
                 bord.Name = BordName.Text;
 
                 stackPanel.Name = bord.Name; // МАКСИМ!! ТУТ Я НАЗЫВАЮ ВСЕ ИМЕНЕМ, КОТОРОЕ ВБИВАЮ ЧЕРЕЗ ТАСКНЭЙМ, МОЖЕШЬ СДЕЛАТЬ ТАК, ЧТОБЫ ПРИ СОЗДАНИИ ЭТО НАЗВАНИЕ ЗАПОМИНАЛОСЬ, ДЛЯ ГЕНЕРАЦИИ ТАКОЙ ЖЕ ИКОНКИ!!!
-
+                stackPanel.Children.Add(BordName);
                 var reName = new Button
                 {
                     Margin = new Thickness(10),
@@ -175,14 +204,14 @@ namespace Project_3
                     NameOfTask = newTaskName.Naming;
                     task.Name = NameOfTask;
                     task.Content = NameOfTask;
+                    BL.AddTask(newTaskName.Naming, column.id);
+                    BordPanel.Children.Clear();
+                    foreach (var item in BL.GetColumns(boardId))
+                    {
+                        BordPanel.Children.Add(Column(2, item));
+                    }
 
-
-
-                    stackPanel.Children.Add(task);
-
-
-
-                    task.Click += new RoutedEventHandler(go_to_task_desc);
+                    
 
                 };
 
@@ -203,14 +232,6 @@ namespace Project_3
         private void go_to_task_desc(object sender, RoutedEventArgs e)
         {
             
-            scroll sc = new scroll();
-            sc.Width = Width; 
-            sc.Height = Height;
-            sc.Top = Top;
-            sc.Left = Left;
-            sc.Show();
-            Hide();
-            Close();
         }
 
         private void go_to_RealBoard(object sender, RoutedEventArgs e)

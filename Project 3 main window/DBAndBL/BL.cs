@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
@@ -8,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
+using System.Xml.Linq;
 
 namespace Project_3
 {
@@ -175,6 +177,14 @@ namespace Project_3
                 columnContext.Columns.Remove(column);
                 columnContext.SaveChanges();
             }
+            using (TaskContext taskContext = new TaskContext())
+            {
+                var task=taskContext.MyTasks.Where(t=>t.columnId==columnId).FirstOrDefault();
+                if (task != null){
+                    taskContext.MyTasks.Remove(task); taskContext.SaveChanges();
+                }
+                
+            }
         }
         public static void RenameColumn(int columnId, string newName)
         {
@@ -192,6 +202,69 @@ namespace Project_3
             {
                 var user=userContext.Users.Where(u=>u.id == userId).FirstOrDefault();
                 return user.login;
+            }
+        }
+        public static void AddTask(string name,int columnId)
+        {
+            MyTask task = new MyTask();
+            task.name = name;
+            task.columnId = columnId;
+            using (TaskContext taskContext = new TaskContext())
+            {
+                taskContext.MyTasks.Add(task);
+                taskContext.SaveChanges();
+            }
+        }
+        public static MyTask[] GetTasks(int columnId)
+        {
+            List<MyTask> myTasks = new List<MyTask>();
+            
+                using (TaskContext taskContext = new TaskContext())
+                {
+                    var da = (taskContext.MyTasks.Where(b => b.columnId == columnId));
+                    if (da.Count() > 0 && da != null)
+                    {
+                        myTasks = da.ToList<MyTask>();
+                    }
+                }
+            
+            
+            return myTasks.ToArray();
+        }
+        public static void TaskDescEdit(string desc,int taskId)
+        {
+            using (TaskContext taskContext = new TaskContext())
+            {
+                    var da = taskContext.MyTasks.Where(d => d.id == taskId).FirstOrDefault();
+                    da.description = desc;
+
+                taskContext.SaveChanges();
+            }
+        }
+        public static string GetDesc(int taskId)
+        {
+            using (TaskContext taskContext = new TaskContext())
+            {
+                var da = (taskContext.MyTasks.Where(b => b.id == taskId)).FirstOrDefault();
+                return da.description;
+            }
+        }
+        public static void DeleteTask(int taskId)
+        {
+            using (TaskContext taskContext = new TaskContext())
+            {
+                var da = (taskContext.MyTasks.Where(b => b.id == taskId)).FirstOrDefault();
+                taskContext.Remove(da);
+                taskContext.SaveChanges();
+            }
+        }
+        public static void RenameTask(int taskId,string newName)
+        {
+            using (TaskContext taskContext = new TaskContext())
+            {
+                var da = (taskContext.MyTasks.Where(b => b.id == taskId)).FirstOrDefault();
+                da.name=newName;
+                taskContext.SaveChanges();
             }
         }
 

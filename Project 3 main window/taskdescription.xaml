@@ -8,14 +8,18 @@
         Title="taskdescription" Height="450" Width="800">
     <Grid Background="#7DE38C">
 
-        <Border Background="#34AD45" BorderThickness="1" Margin="30,30,30,340" CornerRadius="15" Grid.ColumnSpan="2">
+        <Border Background="#34AD45" BorderThickness="1" Margin="30,30,30,340" CornerRadius="15" Grid.ColumnSpan="2" Cursor="Hand">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="30" Color="LightGreen" ShadowDepth="0"/>
             </Border.Effect>
             <StackPanel Margin="-1,-1,-1,-7" RenderTransformOrigin="0.486,0.86">
                 <Grid Margin="0 0 0 20" Height="58" Width="680">
-                    <Button  Content="Edit" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                    <Button Content="Return back" HorizontalAlignment="Right" VerticalAlignment="Center" Click="go_to_window" />
+                    <Button  Content="Save" VerticalAlignment="Center" HorizontalAlignment="Left" Cursor="Hand" Click="save_text" />
+                    <Button Content="Return back" VerticalAlignment="Center" Click="go_to_window" Cursor="Hand" Margin="572,0,0,0" />
+                    <Button Content="Rename Task" HorizontalAlignment="Left" Margin="96,0,0,0" VerticalAlignment="Center" Click="reName_Task"/>
+                    <Button Content="Delete Task" HorizontalAlignment="Left" Margin="249,0,0,0" VerticalAlignment="Center" Click="delete_Task"/>
+
+
                 </Grid>
             </StackPanel>
 
@@ -23,7 +27,7 @@
 
         <Border Margin="0,99,0,0" Background="LightGray" CornerRadius="10" HorizontalAlignment="Center" Width="740" Height="303" VerticalAlignment="Top">
 
-            <TextBox  x:Name="desc_txt" AcceptsReturn="True" Margin="10,22,10,21" BorderThickness="0,0,0,1" SnapsToDevicePixels="True" VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Top" AutomationProperties.HelpText="" HorizontalScrollBarVisibility="Auto" Grid.IsSharedSizeScope="True"/>
+            <TextBox  x:Name="desc_txt" AcceptsReturn="True" Margin="10,22,10,21" BorderThickness="0,0,0,1" SnapsToDevicePixels="True" VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Top" AutomationProperties.HelpText="" HorizontalScrollBarVisibility="Auto" Grid.IsSharedSizeScope="True" DataContext="desc" />
 
         </Border>
     </Grid>

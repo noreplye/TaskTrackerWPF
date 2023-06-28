@@ -53,7 +53,7 @@ namespace Project_3
     {
         public int id { get; set; }
         public string name { get; set; }
-        public string description { get; set; }
+        public string? description { get; set; }
         public int color { get; set; }
         public int columnId { get; set; }
         public MyTask() { }
@@ -124,7 +124,7 @@ namespace Project_3
         {
 
         }
-        public DbSet<MyTask> Tasks { get; set; } = null!;
+        public DbSet<MyTask> MyTasks { get; set; } = null!;
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlite("Data Source=.\\Tasks.db");
